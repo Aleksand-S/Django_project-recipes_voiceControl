@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+{#    <script type="text/JavaScript" src="../../static/app_recipe/js/app_recipe.js"></script>#}
+    <script type="text/JavaScript" src="{% static 'app_recipe/js/app_recipe.js' %}"></script>
+</head>
+<body>
+{#    <img src="{% static 'app_recipe/imgs/icon.png' %}">#}
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
+
+
