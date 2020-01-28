@@ -27,5 +27,6 @@ urlpatterns = [
     path('add_ingredient/', AddIngredientView.as_view(), name='add_ingredient'),
     path('add_recipe/', AddRecipeView.as_view(), name='add_recipe'),
     path('add_unit/', AddUnitView.as_view(), name='add_unit'),
+    path('recipe/<int:recipe_id>/', RecipeByIdView.as_view(), name='recipe_by-id'),
 
 ] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

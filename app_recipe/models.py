@@ -20,6 +20,7 @@ class Cuisine(models.Model):  # while skipping
 
 
 class Recipe(models.Model):
+    # author = models.CharField(max_length=128)
     recipe_name = models.CharField(max_length=128)
     main_image = models.ImageField(upload_to='images/', blank=True)
     ingredients = models.ManyToManyField(Ingredient, through="RecipeIngredientQuantityUnit")

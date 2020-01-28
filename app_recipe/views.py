@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import View
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
@@ -72,5 +72,7 @@ class allRecipesView(View):
 
 
 class RecipeByIdView(View):
-    def get(self, request):
-        pass
+    def get(self, request, recipe_id):
+        recipe_obj = get_object_or_404(Recipe, pk=recipe_id)
+
+        return render(request, 'app_recipe/recipe_by_id.html', {'recipe_obj': recipe_obj})

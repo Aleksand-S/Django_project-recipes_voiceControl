@@ -1,0 +1,23 @@
+{% extends 'app_recipe/index.html' %}
+
+{% block content %}
+
+    <h2>{{ recipe_obj.recipe_name }}</h2>
+    <div>Czas gotowania: {{ recipe_obj.cooking_time }} </div>
+    <img src="/media/{{ recipe_obj.main_image }}" alt="main_photo" height="150">
+
+    <ul>
+        {% for ingredient in recipe_obj.recipeingredientquantityunit_set.all %}
+            <li>{{ingredient.ingredient.ingredient_name}} - {{ingredient.quantity}} ({{ingredient.unit.unit_name}})</li>
+        {% endfor %}
+    </ul>
+
+{#    {% for step in 'recipe_obj.step_set.all' %}#}
+{#    <ul>#}
+{#        <li>Krok</li>#}
+{#        <div>Opis</div>#}
+{#        <div>Zdjęcie</div>#}
+{#    </ul>#}
+{#    {% endfor %}#}
+
+{% endblock %}
