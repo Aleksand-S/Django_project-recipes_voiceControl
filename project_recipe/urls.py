@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app_recipe.views import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -24,4 +26,6 @@ urlpatterns = [
     path('', MainView.as_view(), name='index'),
     path('add_ingredient/', AddIngredientView.as_view(), name='add_ingredient'),
     path('add_recipe/', AddRecipeView.as_view(), name='add_recipe'),
-]
+    path('add_unit/', AddUnitView.as_view(), name='add_unit'),
+
+] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

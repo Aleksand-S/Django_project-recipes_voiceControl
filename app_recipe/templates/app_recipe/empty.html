@@ -1,0 +1,59 @@
+<tr>
+    <th>
+        <label for="id_recipe_name">Name:</label>
+    </th>
+    <td>
+        <input type="text" name="recipe_name" maxlength="128" id="id_recipe_name" required>
+    </td>
+</tr>
+
+<tr>
+    <th>
+        <label for="id_cooking_time">Cooking time:</label>
+    </th>
+    <td>
+        <input type="text" name="cooking_time" id="id_cooking_time" required>
+    </td>
+</tr>
+<tr>
+    <th><
+        label for="id_number_of_persons">Number of persons:</label>
+    </th>
+    <td>
+        <input type="number" name="number_of_persons" id="id_number_of_persons" required>
+    </td>
+</tr>
+<tr>
+    <th>
+        <label for="id_ingredients">Ingredients:</label>
+    </th>
+    <td>
+        <select name="ingredients" id="id_ingredients">
+            <option value="mąka pszenna">mąka pszenna</option>
+            <option value="woda">woda</option>
+            <option value="jajo (kurze)">jajo (kurze)</option>
+        </select>
+    </td>
+</tr>
+
+<tr>
+    <th>
+        <label for="id_quantity">Quantity:</label>
+    </th>
+    <td>
+        <input type="number" name="quantity" step="0.01" min="0.01" id="id_quantity" required>
+    </td>
+</tr>
+
+<tr>
+    <th>
+        <label for="id_units">Units:</label>
+    </th>
+    <td>
+        <select name="units" id="id_units">
+          <option value="łyżka stołowa">łyżka stołowa</option>
+          <option value="szklanka">szklanka</option>
+          <option value="łyżeczka">łyżeczka</option>
+        </select>
+    </td>
+</tr>

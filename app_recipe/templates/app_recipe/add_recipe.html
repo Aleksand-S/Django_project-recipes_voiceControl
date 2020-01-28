@@ -1,0 +1,80 @@
+{% extends 'app_recipe/index.html' %}
+{{ form.non_field_errors }}
+
+{% block content %}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+{#        {{ form.as_p }}#}
+
+{#      const fields #}
+        <div class="constant_block">
+            <div>
+                {{ form.recipe_name.errors }}
+                <label for="{{ form.recipe_name.id_for_label }}">Name:</label>
+                {{ form.recipe_name }}
+            </div>
+            <br>
+            <div>
+                {{ form.main_image.errors }}
+                <label for="{{ form.main_image.id_for_label }}">Main image:</label>
+                {{ form.main_image }}
+            </div>
+            <br>
+            <div>
+                {{ form.cooking_time.errors }}
+                <label for="{{ form.cooking_time.id_for_label }}">Coocking time:</label>
+                <input type="time" name="cooking_time" id="cooking_time">
+            </div>
+            <br>
+            <div>
+                {{ form.number_of_persons.errors }}
+                <label for="{{ form.number_of_persons.id_for_label }}">Number of persons:</label>
+                {{ form.number_of_persons }}
+            </div>
+            <br>
+        </div>
+
+{#      ingredients #}
+        <div class="ingredients_block">
+
+            <div>
+                {{ form.ingredients.errors }}
+                <label for="{{ form.ingredients.id_for_label }}">Ingredients:</label>
+                {{ form.ingredients }}
+
+                {{ form.quantity.errors }}
+                <label for="{{ form.quantity.id_for_label }}">Quantity:</label>
+                {{ form.quantity }}
+
+                {{ form.units.errors }}
+                <label for="{{ form.units.id_for_label }}">Units:</label>
+                {{ form.units }}
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="ingredient_buttons">
+            <button id="add_field_ingredient">+ add ingredient</button>
+            <button id="del_field_ingredient">- del ingredient</button>
+        </div>
+        <br>
+
+        {#      steps block#}
+        <div class="steps_block"><a>Empty place for steps</a></div>
+
+        <div class="step_buttons">
+            <button id="add_next_step">+ add step</button>
+            <button id="del_prev_step">- del step</button>
+        </div>
+
+
+        <br>
+        <input type="submit" value="{{submit_value|default:'OK'}}">
+    </form>
+
+{% endblock %}
+
+
