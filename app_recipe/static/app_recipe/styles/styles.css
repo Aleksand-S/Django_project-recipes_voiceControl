@@ -1,0 +1,26 @@
+#footer {
+    text: 30px;
+    height: 40px;
+    background: #f7f7f7;
+    position: absolute;
+
+    bottom: 0;
+    width: 100%;
+}
+
+#searchbar {
+    float: right;
+}
+
+.recipe_name {
+    font-weight: bold;
+    font-family: Arial;
+}
+
+.like {
+    color: gray;
+}
+
+/* for search block*/
+
+/* end for search block*/

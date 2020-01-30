@@ -22,7 +22,7 @@ class Cuisine(models.Model):  # while skipping
 class Recipe(models.Model):
     # author = models.CharField(max_length=128)
     recipe_name = models.CharField(max_length=128)
-    main_image = models.ImageField(upload_to='images/', blank=True)
+    main_image = models.ImageField(upload_to='images/', blank=True, null=True)
     ingredients = models.ManyToManyField(Ingredient, through="RecipeIngredientQuantityUnit")
     # quantity = models.IntegerField(null=True)  # redirected to model RecipeIngredientQuantityUnit
     # units = models.ForeignKey(Unit, on_delete=models.CASCADE, null=True)  # redirected to model RecipeIngredientQuantityUnit
@@ -42,11 +42,16 @@ class RecipeIngredientQuantityUnit(models.Model):
     unit = models.ForeignKey(Unit, on_delete=models.CASCADE)
 
 
-# class Step(models.Model):
-#     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-#     step_number = models.IntegerField()
-#     description = models.TextField()
-#     step_image = models.ImageField(upload_to='images/', blank=True)
+class Step(models.Model):
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    # step_number = models.IntegerField()
+    description = models.TextField()
+    step_image = models.ImageField(upload_to='images/', blank=True, null=True)
+
+    class Meta:
+        permissions = (
+            ("change_password", 'Can change password'),
+        )
 
 
 # class Comment(models.Model):

@@ -4,7 +4,7 @@
 
     <h2>{{ recipe_obj.recipe_name }}</h2>
     <div>Czas gotowania: {{ recipe_obj.cooking_time }} </div>
-    <img src="/media/{{ recipe_obj.main_image }}" alt="main_photo" height="150">
+    <img src="/media/{{ recipe_obj.main_image }}" alt="main_photo" height="200">
 
     <ul>
         {% for ingredient in recipe_obj.recipeingredientquantityunit_set.all %}
@@ -12,12 +12,12 @@
         {% endfor %}
     </ul>
 
-{#    {% for step in 'recipe_obj.step_set.all' %}#}
-{#    <ul>#}
-{#        <li>Krok</li>#}
-{#        <div>Opis</div>#}
-{#        <div>Zdjęcie</div>#}
-{#    </ul>#}
-{#    {% endfor %}#}
+    {% for step in recipe_obj.step_set.all|dictsort:"pk" %}
+    <ul>
+        <li>Krok {{ forloop.counter }}</li>
+        <div>{{ step.description }}</div>
+        <img src="/media/{{ step.step_image }}" alt="step_photo" height="100">
+    </ul>
+    {% endfor %}
 
 {% endblock %}

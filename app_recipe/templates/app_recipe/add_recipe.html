@@ -63,7 +63,21 @@
         <br>
 
         {#      steps block#}
-        <div class="steps_block"><a>Empty place for steps</a></div>
+        <div class="steps_block">
+            <div>
+                <h4>Step 1</h4>
+                {{ form.step_description.errors }}
+                <label for="{{ form.step_description.id_for_label }}">Description:</label>
+                {{ form.step_description }}
+
+                <br>
+
+                {{ form.step_image.errors }}
+                <label for="{{ form.step_image.id_for_label }}">Current step image:</label>
+                {{ form.step_image }}
+
+            </div>
+        </div>
 
         <div class="step_buttons">
             <button id="add_next_step">+ add step</button>

@@ -5,13 +5,101 @@
     <meta charset="UTF-8">
     <title>Main</title>
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-{#    <script type="text/JavaScript" src="../../static/app_recipe/js/app_recipe.js"></script>#}
     <script type="text/JavaScript" src="{% static 'app_recipe/js/app_recipe.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'app_recipe/styles/styles.css' %}">
 </head>
-<body>
-{#    <img src="{% static 'app_recipe/imgs/icon.png' %}">#}
-    {% block content %}
+<body style="position: relative; min-height: 100vh">
+
+    {% block head %}
+
+        {% if user.is_authenticated %}
+            <table width="100%">
+                <tr>
+                    <td rowspan="2" width="20%"><a href="{% url 'index' %}"><img src="{% static 'app_recipe/imgs/icon.jpeg' %}" height="80"></a></td>
+                    <td align="center"><a href="{% url 'index' %}"> Moje przepisy </a></td>  {#link does not support yet#}
+                    <td align="right" width="15%"><a>Witaj {{ user }}!</a></td>
+                </tr>
+                <tr>
+                    <td align="center"><a href="{% url 'add_recipe' %}"> Dodaj nowy przepis </a></td>
+                    <td align="right" width="15%"><a href="{% url 'logout' %}"> Logout </a></td>
+                </tr>
+            </table>
+
+        {% else %}
+            <table>
+                <tr>
+                    <td rowspan="2" width="20%"><a href="{% url 'index' %}"><img src="{% static 'app_recipe/imgs/icon.jpeg' %}" height="80"></a></td>
+                    <td rowspan="2" align="center">
+                        <img src="{% static 'app_recipe/imgs/main-coocking.jpg' %}" width="500">
+                    </td>
+                    <td align="right" width="15%"><a href="{% url 'login' %}"> Login </a></td>
+                </tr>
+                <tr>
+                    <td align="right" width="15%"><a href="{% url 'add_user' %}"> Sign in </a></td>
+                </tr>
+            </table>
+        {% endif %}
+
     {% endblock %}
+
+
+    {% block search %}
+        <form class="form-wrapper" id="searchbar">
+            <input type="text" id="search1" placeholder="Znajdź przepis ..." required>
+            <input type="text" id="search2" placeholder="Kategoja ..." required>
+            <input type="text" id="search3" placeholder="Kuchnie świata ..." required>
+            <input type="submit" value="Szukaj" id="submit">
+        </form>
+        <br>
+    {% endblock %}
+
+
+    {% block content %}
+        {% for recipe in recipes %}
+        <table width="100%" border="1" >
+            <tr>
+                <td rowspan="3" align="center" width="40%">
+                    <a href="recipe/{{ recipe.pk }}">
+                        <img src="/media/{{ recipe.main_image }}" alt="main_photo" width="150">
+                    </a>
+                </td>
+                <td align="center" class="recipe_name">{{ recipe.recipe_name }}</td>
+            </tr>
+
+            <tr>
+
+                <td>
+                    <ul>
+                        {% for ingredient in recipe.ingredients.all %}
+                            <li>{{ ingredient.ingredient_name }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+
+                <td align="center">
+                    <img src="{% static 'app_recipe/imgs/like.png' %}" alt="like" width="20">
+                    <a class="like">325</a>
+                    <a>|</a>
+                </td>
+            </tr>
+        </table>
+            <br>
+        {% endfor %}
+        <br>
+        <br>
+    {% endblock %}
+
+
+    {% block footer %}
+        <div id="footer" align="center">
+            <a>created with support</a>
+            <img src="{% static 'app_recipe/imgs/cl.jpg' %}" height="18">
+        </div>
+    {% endblock %}
+
 </body>
 </html>
 

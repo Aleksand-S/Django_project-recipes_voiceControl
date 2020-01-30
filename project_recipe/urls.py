@@ -29,4 +29,9 @@ urlpatterns = [
     path('add_unit/', AddUnitView.as_view(), name='add_unit'),
     path('recipe/<int:recipe_id>/', RecipeByIdView.as_view(), name='recipe_by-id'),
 
-] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
+    path('login/', LoginView.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
+    path('add_user/', AddUserView.as_view(), name='add_user'),
+    path('reset_password/<int:user_id>', ChangePasswordView.as_view(), name='reset_password'),
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

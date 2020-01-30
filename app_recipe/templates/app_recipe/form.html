@@ -1,14 +1,14 @@
 {% extends 'app_recipe/index.html' %}
 
 {% block content %}
-
+    <div>{{ info }}</div>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <div>
-            <button id="add_field_ingredient">+ add ingredient</button>
-            <button id="del_field_ingredient">- del ingredient</button>
-        </div>
+{#        <div>#}
+{#            <button id="add_field_ingredient">+ add ingredient</button>#}
+{#            <button id="del_field_ingredient">- del ingredient</button>#}
+{#        </div>#}
         <br>
         <input type="submit" value="{{submit_value|default:'OK'}}">
     </form>
