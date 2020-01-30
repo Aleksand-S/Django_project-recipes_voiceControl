@@ -3,7 +3,7 @@
 {% load static %}
 <head>
     <meta charset="UTF-8">
-    <title>Main</title>
+    <title>Przepisy</title>
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script type="text/JavaScript" src="{% static 'app_recipe/js/app_recipe.js' %}"></script>
     <link rel="stylesheet" href="{% static 'app_recipe/styles/styles.css' %}">
@@ -46,7 +46,7 @@
     {% block search %}
         <form class="form-wrapper" id="searchbar">
             <input type="text" id="search1" placeholder="Znajdź przepis ..." required>
-            <input type="text" id="search2" placeholder="Kategoja ..." required>
+            <input type="text" id="search2" placeholder="Kategoria ..." required>
             <input type="text" id="search3" placeholder="Kuchnie świata ..." required>
             <input type="submit" value="Szukaj" id="submit">
         </form>
@@ -58,9 +58,9 @@
         {% for recipe in recipes %}
         <table width="100%" border="1" >
             <tr>
-                <td rowspan="3" align="center" width="40%">
+                <td rowspan="3" align="center" width="40%" height="20%">
                     <a href="recipe/{{ recipe.pk }}">
-                        <img src="/media/{{ recipe.main_image }}" alt="main_photo" width="150">
+                        <img src="/media/{{ recipe.main_image }}" alt="main_photo" width="70%">
                     </a>
                 </td>
                 <td align="center" class="recipe_name">{{ recipe.recipe_name }}</td>
@@ -81,8 +81,10 @@
 
                 <td align="center">
                     <img src="{% static 'app_recipe/imgs/like.png' %}" alt="like" width="20">
-                    <a class="like">325</a>
-                    <a>|</a>
+                    <a class="like">{{ recipe.pk|add:'320' }}</a>
+                    <a>||</a>
+                    <img src="{% static 'app_recipe/imgs/time.png' %}" alt="like" width="15">
+                    <a class="like">{{ recipe.pk|add:'15' }} min</a>
                 </td>
             </tr>
         </table>

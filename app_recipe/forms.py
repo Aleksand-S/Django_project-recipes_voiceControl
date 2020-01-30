@@ -6,7 +6,7 @@ from .models import *
 
 
 class AddRecipeForm(forms.Form):
-    recipe_name = forms.CharField(max_length=128, label='Name')
+    recipe_name = forms.CharField(max_length=128)
 
     main_image = forms.ImageField(required=False)
 

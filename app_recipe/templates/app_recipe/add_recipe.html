@@ -3,6 +3,7 @@
 
 {% block content %}
 
+    <br>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
 {#        {{ form.as_p }}#}
@@ -11,44 +12,45 @@
         <div class="constant_block">
             <div>
                 {{ form.recipe_name.errors }}
-                <label for="{{ form.recipe_name.id_for_label }}">Name:</label>
+                <label for="{{ form.recipe_name.id_for_label }}">Nazwa:</label>
                 {{ form.recipe_name }}
             </div>
             <br>
             <div>
                 {{ form.main_image.errors }}
-                <label for="{{ form.main_image.id_for_label }}">Main image:</label>
+                <label for="{{ form.main_image.id_for_label }}">Obrazek główny:</label>
                 {{ form.main_image }}
             </div>
             <br>
             <div>
                 {{ form.cooking_time.errors }}
-                <label for="{{ form.cooking_time.id_for_label }}">Coocking time:</label>
+                <label for="{{ form.cooking_time.id_for_label }}">Czas wykonania:</label>
                 <input type="time" name="cooking_time" id="cooking_time">
             </div>
             <br>
             <div>
                 {{ form.number_of_persons.errors }}
-                <label for="{{ form.number_of_persons.id_for_label }}">Number of persons:</label>
+                <label for="{{ form.number_of_persons.id_for_label }}">Dla ilu osób:</label>
                 {{ form.number_of_persons }}
             </div>
             <br>
         </div>
 
 {#      ingredients #}
+        <div class="recipe_name">Składniki</div>
         <div class="ingredients_block">
 
             <div>
                 {{ form.ingredients.errors }}
-                <label for="{{ form.ingredients.id_for_label }}">Ingredients:</label>
+                <label for="{{ form.ingredients.id_for_label }}"></label>
                 {{ form.ingredients }}
 
                 {{ form.quantity.errors }}
-                <label for="{{ form.quantity.id_for_label }}">Quantity:</label>
+                <label for="{{ form.quantity.id_for_label }}">ilość:</label>
                 {{ form.quantity }}
 
                 {{ form.units.errors }}
-                <label for="{{ form.units.id_for_label }}">Units:</label>
+                <label for="{{ form.units.id_for_label }}">jednostka:</label>
                 {{ form.units }}
             </div>
 
@@ -57,37 +59,40 @@
         <br>
 
         <div class="ingredient_buttons">
-            <button id="add_field_ingredient">+ add ingredient</button>
-            <button id="del_field_ingredient">- del ingredient</button>
+            <button id="add_field_ingredient">+ dodaj składnik</button>
+            <button id="del_field_ingredient">- usuń składnik</button>
         </div>
         <br>
 
         {#      steps block#}
         <div class="steps_block">
             <div>
-                <h4>Step 1</h4>
+                <div class="recipe_name">Krok 1</div>
                 {{ form.step_description.errors }}
-                <label for="{{ form.step_description.id_for_label }}">Description:</label>
+                <label for="{{ form.step_description.id_for_label }}">Opis:</label>
                 {{ form.step_description }}
 
                 <br>
 
                 {{ form.step_image.errors }}
-                <label for="{{ form.step_image.id_for_label }}">Current step image:</label>
+                <label for="{{ form.step_image.id_for_label }}">Obraz bieżącego kroku:</label>
                 {{ form.step_image }}
 
             </div>
         </div>
 
         <div class="step_buttons">
-            <button id="add_next_step">+ add step</button>
-            <button id="del_prev_step">- del step</button>
+            <button id="add_next_step">+ dodaj krok</button>
+            <button id="del_prev_step">- usuń krok</button>
         </div>
 
 
         <br>
         <input type="submit" value="{{submit_value|default:'OK'}}">
     </form>
+    <br>
+    <br>
+    <br>
 
 {% endblock %}
 

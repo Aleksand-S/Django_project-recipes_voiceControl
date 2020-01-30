@@ -34,7 +34,7 @@ class AddRecipeView(PermissionRequiredMixin, View):
 
     def get(self, request):
         form = AddRecipeForm()
-        return render(request, 'app_recipe/add_recipe.html', {'form':form, 'submit_value':'Dodaj do DB'})
+        return render(request, 'app_recipe/add_recipe.html', {'form':form, 'submit_value':'Dodaj przepis'})
 
     def post(self, request):
         form = AddRecipeForm(request.POST, request.FILES)
@@ -76,7 +76,7 @@ class AddRecipeView(PermissionRequiredMixin, View):
                 Step.objects.create(recipe=recipe_object, description=description[index],
                                     step_image=step_image[index])
 
-            return HttpResponse('OK')
+            return redirect("index")
 
         return render(request, 'app_recipe/add_recipe.html', {'form':form})
 

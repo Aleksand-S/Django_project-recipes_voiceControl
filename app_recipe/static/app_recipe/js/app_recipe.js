@@ -34,7 +34,7 @@ $(function () {
         let innerTextLastElement = $('.steps_block').children().eq(-1).children().eq(0);
         let textInElement = innerTextLastElement.text().split(' ')[1];
         textInElement ++;
-        innerTextForAddToElement = 'Step ' + textInElement;
+        innerTextForAddToElement = 'Krok ' + textInElement;
 
         // add element with text 'Step <number>'
         newStepElement.children().eq(0).text(innerTextForAddToElement);
