@@ -21,6 +21,11 @@
     color: gray;
 }
 
-/* for search block*/
+.form-container {
+    width: 500px;
+    margin: 0 auto;
+}
 
-/* end for search block*/
+.body-main {
+    background-color: cornsilk;
+}

@@ -87,13 +87,11 @@ class RecipeByIdView(View):
         array_steps_to_voice = [element.description for element in recipe_obj.step_set.all().order_by('pk')]
         try:
             print('Try to ON mic')
-            # start_voice_assistant(array_steps_to_voice)
             asynch_process = threading.Thread(target=start_voice_assistant, args=(array_steps_to_voice,))
             asynch_process.start()
-            print('try to ON asynch process')
         finally:
             print('all errors after voice')
-        print('Try to ON mic')
+        print('after asynch process')
         return render(request, 'app_recipe/recipe_by_id.html', {'recipe_obj': recipe_obj})
 
 

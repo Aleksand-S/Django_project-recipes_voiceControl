@@ -53,32 +53,27 @@ def speak(audio_string):
 
 def respond(voice_data, steps_array_voice):
     # 1: krok 1
-    if len(steps_array_voice) != 0 and there_exists(['hej szef', 'halo szef'], voice_data)\
-                                   and there_exists(['krok 1', 'krok pierwszy', '1 krok', 'pierwszy krok'], voice_data):
+    if len(steps_array_voice) != 0 and there_exists(['krok 1', 'krok pierwszy', '1 krok', 'pierwszy krok'], voice_data):
         krok = 'czytam krok pierwszy: ' + steps_array_voice[0]
         speak(krok)
 
     # 1: krok 2
-    if len(steps_array_voice) > 1 and there_exists(['hej szef', 'halo szef'], voice_data)\
-                                  and there_exists(['krok 2', 'krok drugi', '2 krok', 'drugi krok'], voice_data):
+    if len(steps_array_voice) > 1 and there_exists(['krok 2', 'krok drugi', '2 krok', 'drugi krok'], voice_data):
         krok = 'czytam krok drugi: ' + steps_array_voice[1]
         speak(krok)
 
     # 1: krok 3
-    if len(steps_array_voice) > 2 and there_exists(['hej szef', 'halo szef'], voice_data)\
-                                  and there_exists(['krok 3','krok trzeci', '3 krok', 'trzeci krok'], voice_data):
+    if len(steps_array_voice) > 2 and there_exists(['krok 3','krok trzeci', '3 krok', 'trzeci krok'], voice_data):
         krok = 'czytam krok trzeci: ' + steps_array_voice[2]
         speak(krok)
 
     # 1: krok 4
-    if len(steps_array_voice) > 3 and there_exists(['hej szef', 'halo szef'], voice_data)\
-                                  and there_exists(['krok 4', 'krok czwarty', '4 krok', 'czwarty krok'], voice_data):
+    if len(steps_array_voice) > 3 and there_exists(['krok 4', 'krok czwarty', '4 krok', 'czwarty krok'], voice_data):
         krok = 'czytam krok czwarty: ' + steps_array_voice[3]
         speak(krok)
 
     # 1: krok 5
-    if len(steps_array_voice) > 4 and there_exists(['hej szef', 'halo szef'], voice_data)\
-                                  and there_exists(['krok 5', 'krok piąty', '5 krok', 'piąty krok'], voice_data):
+    if len(steps_array_voice) > 4 and there_exists(['krok 5', 'krok piąty', '5 krok', 'piąty krok'], voice_data):
         krok = 'czytam krok piąty: ' + steps_array_voice[4]
         speak(krok)
 

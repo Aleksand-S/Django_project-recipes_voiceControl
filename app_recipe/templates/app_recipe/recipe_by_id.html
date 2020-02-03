@@ -1,9 +1,12 @@
 {% extends 'app_recipe/index.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 
     <h2>{{ recipe_obj.recipe_name }}</h2>
-    <div>Czas gotowania: {{ recipe_obj.cooking_time }} </div>
+{#    <div>Czas gotowania: {{ recipe_obj.cooking_time }} </div>#}
+    <div>Czas gotowania: 20 min </div>
 
     <table>
         <tr>
