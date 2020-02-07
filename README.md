@@ -1,3 +1,4 @@
+(on development stage...)
 Application for managing recipes.
 
 Information is stored in a PostgreSQL.
